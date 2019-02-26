@@ -8,16 +8,29 @@ import marked from 'marked';
 class App extends Component {
   state = {
     rawMarkdown : '',
-    convertedHtml: ''
+    resultHtml: ''
   }
 
   editorChangeHandler = (e) => {
     // console.log(e.target.value);
     let typedInput = e.target.value;
+    // const tokens = marked.lexer(typedInput);
+    // const convertedHtml = marked.parser(tokens);
+    // typedInput =
+    // let convertedHtml = marked(typedInput, {gfm: true, sanitize: true});
     let convertedHtml = marked(typedInput);
     console.log(convertedHtml);
-    this.setState({convertedHtml});
+    // let res = this.createMarkup(convertedHtml);
+    // console.log(res);
+    this.setState({
+      convertedHtml
+    })
   }
+
+  // createMarkup = (convertedHtml) => {
+  //   return {__html: convertedHtml}
+  // }
+
   render() {
     return (
       <div className="App row">
